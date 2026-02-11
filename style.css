@@ -62,28 +62,15 @@ body {
   border: 2px solid rgba(255,255,255,0.4);
 }
 
-.cake-wrapper {
+.candle-container {
   position: relative;
-  width: 220px;
-  height: 320px;
+  height: 140px;
   margin: 0 auto 30px;
-}
-
-.cake {
-  width: 100%;
-  height: 100%;
-  display: block;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-15px); }
 }
 
 .candle {
   position: absolute;
-  top: 100px;                  /* Sesuaikan nilai ini kalau posisi lilin masih kurang pas (90-120px) */
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 24px;
@@ -91,7 +78,6 @@ body {
   background: linear-gradient(#fff, #f5f5f5);
   border-radius: 12px 12px 0 0;
   animation: rise 5s ease-out forwards;
-  z-index: 10;
 }
 
 .flame {
@@ -120,46 +106,18 @@ body {
   50%     { opacity: 0.7; transform: translateX(-50%) scale(1.15); }
 }
 
-/* Efek asap */
-.smoke {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 60px;
-  background: rgba(200, 200, 200, 0.4);
-  border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
-  filter: blur(8px);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
+.cake {
+  width: 220px;
+  height: auto;
+  margin: 0 auto 30px;
+  animation: float 6s ease-in-out infinite;
 }
 
-.smoke1 { animation: smoke-rise 6s infinite ease-in-out; }
-.smoke2 {
-  width: 15px;
-  height: 80px;
-  background: rgba(220, 220, 220, 0.3);
-  animation: smoke-rise 7.5s infinite ease-in-out;
-  animation-delay: 2s;
-}
-.smoke3 {
-  width: 25px;
-  height: 70px;
-  background: rgba(180, 180, 180, 0.35);
-  animation: smoke-rise 8.5s infinite ease-in-out;
-  animation-delay: 4s;
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-15px); }
 }
 
-@keyframes smoke-rise {
-  0%   { transform: translateX(-50%) translateY(0) scale(0.8) rotate(0deg); opacity: 0; }
-  20%  { opacity: 0.7; }
-  60%  { transform: translateX(-50%) translateY(-120px) scale(1.2) rotate(10deg); opacity: 0.5; }
-  100% { transform: translateX(-50%) translateY(-220px) scale(1.5) rotate(-15deg); opacity: 0; }
-}
-
-/* Teks ucapan + melting */
 .greeting h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 3.8rem;
@@ -170,27 +128,13 @@ body {
   border-right: 4px solid #e91e63;
   width: 0;
   animation: typing 3.5s steps(28) forwards, blink 0.8s infinite;
-  position: relative;
-  z-index: 2;
 }
 
-.greeting h1::before,
-.greeting h1::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #e91e63;
-  opacity: 0.6;
-  z-index: 1;
-  pointer-events: none;
-  animation: melt 8s ease-in forwards 5s;
-}
-
-.greeting h1::after {
-  opacity: 0.3;
-  filter: blur(8px);
-  animation: melt 10s ease-in forwards 5.5s;
+.greeting p {
+  font-size: 1.3rem;
+  color: #444;
+  opacity: 0;
+  animation: fadeIn 2s 4s forwards;
 }
 
 @keyframes typing {
@@ -199,20 +143,6 @@ body {
 
 @keyframes blink {
   50% { border-color: transparent; }
-}
-
-@keyframes melt {
-  0%   { transform: translateY(0) scaleY(1); opacity: 0.6; }
-  40%  { transform: translateY(20px) scaleY(1.1); opacity: 0.8; }
-  70%  { transform: translateY(80px) scaleY(0.8) skew(10deg); opacity: 0.4; }
-  100% { transform: translateY(150px) scaleY(0.2) skew(20deg); opacity: 0; }
-}
-
-.greeting p {
-  font-size: 1.3rem;
-  color: #444;
-  opacity: 0;
-  animation: fadeIn 2s 4s forwards;
 }
 
 @keyframes fadeIn {
