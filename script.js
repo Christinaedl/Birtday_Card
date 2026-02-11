@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  // Konfeti mulai setelah animasi utama selesai (~5-6 detik)
+  // Konfeti mulai setelah animasi utama (~5-6 detik)
   setTimeout(startConfetti, 5500);
 });
 
